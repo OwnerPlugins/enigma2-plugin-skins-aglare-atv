@@ -248,7 +248,7 @@ ACTIVE_SERVICES = [
 lng = "en"
 try:
     lng = config.osd.language.value[:-3]
-except:
+except BaseException:
     lng = "en"
 
 
@@ -878,7 +878,7 @@ class MediaStorage:
         try:
             stat = statvfs(path)
             return (stat.f_bavail * stat.f_frsize) / (1024 * 1024) > min_space
-        except:
+        except BaseException:
             return False
 
     def _init_storage(self, media_type):
@@ -1002,7 +1002,7 @@ def MemClean():
         system('echo 1 > /proc/sys/vm/drop_caches')  # Clear pagecache
         system('echo 2 > /proc/sys/vm/drop_caches')  # Clear dentries and inodes
         system('echo 3 > /proc/sys/vm/drop_caches')  # Clear all caches
-    except:
+    except BaseException:
         pass
 
 # ================ END MEMORY CONFIGURATION ================
