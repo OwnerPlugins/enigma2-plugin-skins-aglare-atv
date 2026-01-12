@@ -5,7 +5,7 @@ from __future__ import absolute_import, print_function
 #########################################################
 #                                                       #
 #  AGLARE SETUP UTILITY SKIN                            #
-#  Version: 5.7                                         #
+#  Version: 6.4                                         #
 #  Created by Lululla (https://github.com/Belfagor2005) #
 #  License: CC BY-NC-SA 4.0                             #
 #  https://creativecommons.org/licenses/by-nc-sa/4.0    #
@@ -34,9 +34,10 @@ from __future__ import absolute_import, print_function
 
 # Standard library
 from glob import glob as glob_glob
-from os import remove, stat, system as os_system
+from os import remove, stat, listdir, system as os_system
 from os.path import exists, join
-
+from re import sub
+import shutil
 # Third-party libraries
 from PIL import Image
 
@@ -79,7 +80,7 @@ from .DownloadControl import startPosterAutoDB, startBackdropAutoDB
 
 skinversion = ''
 api_key_manager = ApiKeyManager()
-version = '5.7'
+version = '6.4'
 
 """
 HELPER
@@ -148,6 +149,21 @@ cur_skin = config.skin.primary_skin.value.replace("/skin.xml", "").strip()
 fullurl = None
 
 
+# Mapping of color values to directory names
+COLOR_DIR_MAPPING = {
+    'color0': 'Default',
+    'color1': 'Black',
+    'color2': 'Brown',
+    'color3': 'Green',
+    'color4': 'Magenta',
+    'color5': 'Blue',
+    'color6': 'Red',
+    'color7': 'Purple',
+    'color8': 'Green2',
+    # Add more mappings as needed
+}
+
+
 class AglareSetup(ConfigListScreen, Screen):
     skin = '''
             <screen name="AglareSetup" position="160,220" size="1600,680" title="Aglare-FHD Skin Controler" backgroundColor="back">
@@ -165,14 +181,16 @@ class AglareSetup(ConfigListScreen, Screen):
         self.session = session
         self.version = skinversion
         self.skinFile = join("/usr/share/enigma2", config.skin.primary_skin.value)
+        print("self.skinFile: {}".format(self.skinFile))
+
         self.previewFiles = '/usr/lib/enigma2/python/Plugins/Extensions/Aglare/sample/'
         self['Preview'] = Pixmap()
         self.onChangedEntry = []
         self.setup_title = (cur_skin)
         list = []
-        section = '--------------------------( SKIN GENERAL SETUP )-----------------------'
+        section = '--------------------------( GENERAL SKIN  SETUP )-----------------------'
         list.append(getConfigListEntry(section))
-        section = '--------------------------( SKIN APIKEY SETUP )-----------------------'
+        section = '--------------------------( APIKEY SKIN SETUP )-----------------------'
         list.append(getConfigListEntry(section))
         ConfigListScreen.__init__(self, list, session=self.session, on_change=self.changedEntry)
         self["actions"] = HelpableActionMap(
@@ -223,62 +241,71 @@ class AglareSetup(ConfigListScreen, Screen):
     def createSetup(self):
         try:
             self.editListEntry = None
-            # ── NEW BLOCK: show "CD" in PosterX only when Style5 CD is active ──
-            is_style5_cd = (cfg.InfobarStyle.value == 'infobar_base5')
+            is_ecm_on = (cfg.InfobarECM.value == 'infobar_ecm_on')
 
-            # Always‑available PosterX choices
-            posterx_choices = [
-                ('infobar_posters_posterx_off', _('OFF')),
-                ('infobar_posters_posterx_on',  _('ON')),
-            ]
+            # Handle InfobarPosterx choices
+            if is_ecm_on:
+                posterx_choices = [
+                    ('infobar_posters_posterx_off', _('OFF')),
+                    ('infobar_posters_posterx_ecm', _('1 poster'))
+                ]
+            else:
+                is_style5_cd = (cfg.InfobarStyle.value == 'infobar_base5')
+                posterx_choices = [
+                    ('infobar_posters_posterx_off', _('OFF')),
+                    ('infobar_posters_posterx_on', _('ON')),
+                ]
+                if is_style5_cd:
+                    posterx_choices.append(('infobar_posters_posterx_cd', _('CD')))
 
-            # Add “CD” only if Style5 CD is selected
-            if is_style5_cd:
-                posterx_choices.append(('infobar_posters_posterx_cd', _('CD')))
-
-            # ---------------- PosterX ----------------
             current_value = cfg.InfobarPosterx.value
-            default_value = (
-                current_value
-                if any(k == current_value for k, _ in posterx_choices)
-                else 'infobar_posters_posterx_off'
-            )
-
+            default_value = current_value if any(k == current_value for k, _ in posterx_choices) else posterx_choices[0][0]
             if cfg.InfobarPosterx.value not in [v for v, _ in posterx_choices]:
                 cfg.InfobarPosterx.value = default_value
             cfg.InfobarPosterx.setChoices(posterx_choices)
-            # ── NEW BLOCK: dynamic list for InfoBar Xtraevent ───────────────
-            style = cfg.InfobarStyle.value  # current skin style
 
-            # Always–present options
-            xtraevent_choices = [
-                ('infobar_posters_xtraevent_off', _('OFF')),
-                ('infobar_posters_xtraevent_on',  _('ON')),
-            ]
+            # Handle InfobarXtraevent choices
+            if is_ecm_on:
+                xtraevent_choices = [
+                    ('infobar_posters_xtraevent_off', _('OFF')),
+                    ('infobar_posters_xtraevent_ecm', _('1 poster'))
+                ]
+            else:
+                style = cfg.InfobarStyle.value
+                xtraevent_choices = [
+                    ('infobar_posters_xtraevent_off', _('OFF')),
+                    ('infobar_posters_xtraevent_on', _('ON')),
+                ]
+                if style == 'infobar_base1':
+                    xtraevent_choices.append(('infobar_posters_xtraevent_info', _('Backdrop')))
+                elif style == 'infobar_base5':
+                    xtraevent_choices.append(('infobar_posters_xtraevent_cd', _('CD')))
 
-            # Style‑dependent extras
-            if style == 'infobar_base1':               # Default style
-                xtraevent_choices.append(
-                    ('infobar_posters_xtraevent_info', _('Backdrop'))
-                )
-            elif style == 'infobar_base5':             # Style 5 CD
-                xtraevent_choices.append(
-                    ('infobar_posters_xtraevent_cd', _('CD'))
-                )
-
-            # ---------------- Xtraevent --------------
             current = cfg.InfobarXtraevent.value
-            safe_default = (
-                current
-                if any(key == current for key, _ in xtraevent_choices)
-                else 'infobar_posters_xtraevent_off'
-            )
-
-            # ✔ use it here
+            safe_default = current if any(key == current for key, _ in xtraevent_choices) else xtraevent_choices[0][0]
             if cfg.InfobarXtraevent.value not in [v for v, _ in xtraevent_choices]:
                 cfg.InfobarXtraevent.value = safe_default
             cfg.InfobarXtraevent.setChoices(xtraevent_choices)
-            # ────────────────────────────────────────────────────────────────
+
+            # Handle InfobarStyle choices - remove infobar_base5 if ECM is on
+            infobar_style_choices = [
+                ('infobar_base1', _('Default')),
+                ('infobar_base2', _('Style2')),
+                ('infobar_base3', _('Style3')),
+                ('infobar_base4', _('Style4')),
+                ('infobar_base5', _('Style5 CD')),
+            ]
+            if is_ecm_on:
+                infobar_style_choices = [x for x in infobar_style_choices if x[0] != 'infobar_base5']
+                # If current style is base5, reset to default
+                if cfg.InfobarStyle.value == 'infobar_base5':
+                    cfg.InfobarStyle.value = 'infobar_base1'
+
+            current_style = cfg.InfobarStyle.value
+            if current_style not in [v for v, _ in infobar_style_choices]:
+                cfg.InfobarStyle.value = 'infobar_base1'
+            cfg.InfobarStyle.setChoices(infobar_style_choices)
+
             list = []
             section = '-------------------------( GENERAL SKIN  SETUP )------------------------'
             list.append((_(section), NoSave(ConfigNothing())))
@@ -286,14 +313,20 @@ class AglareSetup(ConfigListScreen, Screen):
             list.append(getConfigListEntry(_('Select Your Font:'), cfg.FontStyle))
             list.append(getConfigListEntry(_('Skin Style:'), cfg.skinSelector))
             list.append(getConfigListEntry(_('InfoBar Style:'), cfg.InfobarStyle))
+            list.append(getConfigListEntry(_('InfoBar ECM:'), cfg.InfobarECM))
             list.append(getConfigListEntry(_('InfoBar PosterX:'), cfg.InfobarPosterx))
             list.append(getConfigListEntry(_('InfoBar Xtraevent:'), cfg.InfobarXtraevent))
             list.append(getConfigListEntry(_('InfoBar Date:'), cfg.InfobarDate))
             list.append(getConfigListEntry(_('InfoBar Weather:'), cfg.InfobarWeather))
             list.append(getConfigListEntry(_('SecondInfobar Style:'), cfg.SecondInfobarStyle))
+            list.append(getConfigListEntry(_('SecondInfobar Weather:'), cfg.SecondInfobarWeather))
             list.append(getConfigListEntry(_('SecondInfobar Posterx:'), cfg.SecondInfobarPosterx))
             list.append(getConfigListEntry(_('SecondInfobar Xtraevent:'), cfg.SecondInfobarXtraevent))
             list.append(getConfigListEntry(_('ChannelSelection Style:'), cfg.ChannSelector))
+            list.append(getConfigListEntry(_('Channel Foreground Color:'), cfg.ChannForegroundColor))
+            list.append(getConfigListEntry(_('Channel Selected Foreground Color:'), cfg.ChannForegroundColorSelected))
+            list.append(getConfigListEntry(_('Channel Description Color:'), cfg.ChannServiceDescriptionColor))
+            list.append(getConfigListEntry(_('Channel Selected Description Color:'), cfg.ChannServiceDescriptionColorSelected))
             list.append(getConfigListEntry(_('EventView Style:'), cfg.EventView))
             list.append(getConfigListEntry(_('VolumeBar Style:'), cfg.VolumeBar))
             list.append(getConfigListEntry(_('Support E2iplayer Skins:'), cfg.E2iplayerskins))
@@ -309,7 +342,6 @@ class AglareSetup(ConfigListScreen, Screen):
             list.append(getConfigListEntry(_('Enable Display InfoEvents:'), cfg.info_display_mode, _("Enable the display of extended event information, including full cast, crew, plot details, and other metadata, in the info widget.")))
             list.append(getConfigListEntry(_('Enable Display Genre icons:'), cfg.genre_source, _("Show icons representing the genre of each event (e.g., action, comedy, drama)")))
             list.append(getConfigListEntry(_('Enable Display XMC Poster:'), cfg.xemc_poster, _("Show poster from movie in local folder")))
-
             list.append(getConfigListEntry("API KEY SETUP:", cfg.actapi, _("Settings Apikey Server")))
 
             if cfg.actapi.value:
@@ -477,7 +509,7 @@ class AglareSetup(ConfigListScreen, Screen):
             cfg.download_now_poster.value = False
             cfg.download_now_poster.save()
 
-            # Otteniamo TUTTI i provider abilitati, anche con chiavi di default
+            # We get ALL providers enabled, even with default keys
             enabled_providers = {}
             using_default_keys = False
 
@@ -726,6 +758,21 @@ class AglareSetup(ConfigListScreen, Screen):
         from Screens.Setup import SetupSummary
         return SetupSummary
 
+    def modify_channel_colors(self, content):
+        """Replace colors in channel selection XML based on user selection"""
+        # Get the selected colors
+        fg_color = cfg.ChannForegroundColor.value
+        fg_selected_color = cfg.ChannForegroundColorSelected.value
+        desc_color = cfg.ChannServiceDescriptionColor.value
+        desc_selected_color = cfg.ChannServiceDescriptionColorSelected.value
+
+        # Replace the colors in the XML content
+        content = sub(r'foregroundColor="[^"]*"', f'foregroundColor="{fg_color}"', content)
+        content = sub(r'foregroundColorSelected="[^"]*"', f'foregroundColorSelected="{fg_selected_color}"', content)
+        content = sub(r'colorServiceDescription="[^"]*"', f'colorServiceDescription="{desc_color}"', content)
+        content = sub(r'colorServiceDescriptionSelected="[^"]*"', f'colorServiceDescriptionSelected="{desc_selected_color}"', content)
+        return content
+
     def keySave(self):
         if not skinversion:
             self.session.open(MessageBox, "Skin version file missing or invalid.", MessageBox.TYPE_ERROR)
@@ -733,6 +780,7 @@ class AglareSetup(ConfigListScreen, Screen):
             return
 
         self.version = skinversion
+        print("version skin: {}".format(self.version))
 
         def load_xml_to_skin_lines(file_path):
             try:
@@ -762,17 +810,88 @@ class AglareSetup(ConfigListScreen, Screen):
         try:
             skin_lines = []
             xml_files = [
+               'head-' + cfg.colorSelector.value,
+               'font-' + cfg.FontStyle.value,
+               'infobar-' + cfg.InfobarStyle.value,
+               'infobar-' + cfg.InfobarECM.value,
+               'infobar-' + cfg.InfobarPosterx.value,
+               'infobar-' + cfg.InfobarXtraevent.value,
+               'infobar-' + cfg.InfobarDate.value,
+               'infobar-' + cfg.InfobarWeather.value,
+               'secondinfobar-' + cfg.SecondInfobarStyle.value,
+               'secondinfobar-' + cfg.SecondInfobarWeather.value,
+               'secondinfobar-' + cfg.SecondInfobarPosterx.value,
+               'secondinfobar-' + cfg.SecondInfobarXtraevent.value,
+               # Channellist managed separately after this point
+               'eventview-' + cfg.EventView.value,
+               'vol-' + cfg.VolumeBar.value,
+               'e2iplayer-' + cfg.E2iplayerskins.value
+            ]
+
+            # Load all files up to secondinfobar
+            for filename in xml_files[:12]:  # The first 12 elements (up to secondinfobar)
+                skin_lines.extend(load_xml_to_skin_lines(self.previewFiles + filename + '.xml'))
+
+            # Special management for channellists
+            cur_skin = config.skin.primary_skin.value.replace("/skin.xml", "")
+            if cur_skin == "Aglare-FHD":
+                # Copy images from the color directory
+                color_value = cfg.colorSelector.value
+                if color_value in COLOR_DIR_MAPPING:
+                    color_dir = COLOR_DIR_MAPPING[color_value]
+                    window_color_dir = f"/usr/share/enigma2/Aglare-FHD/main/windowcolor/w_{color_dir}/"
+                    window_dest_dir = "/usr/share/enigma2/Aglare-FHD/window/"
+
+                    if exists(window_color_dir):
+                        for filename in listdir(window_color_dir):
+                            if filename.endswith(('.png', '.jpg')):
+                                w_src_file = join(window_color_dir, filename)
+                                w_dest_file = join(window_dest_dir, filename)
+                                try:
+                                    shutil.copy2(w_src_file, w_dest_file)
+                                except Exception as e:
+                                    print(f"Error copying {w_src_file} to {w_dest_file}: {e}")
+                    else:
+                        print(f"Source directory does not exist: {window_color_dir}")
+
+                channellist_file = self.previewFiles + 'channellist-' + cfg.ChannSelector.value + '.xml'
+                try:
+                   with open(channellist_file, 'r') as f:
+                        channellist_content = f.read()
+                   channellist_content = self.modify_channel_colors(channellist_content)
+                   # Divide into rows and add
+                   skin_lines.extend(channellist_content.splitlines(True))
+                except FileNotFoundError:
+                    print("Channel selection file not found:", channellist_file)
+            else:  # Aglare-FHD-PLI
+                skin_lines.extend(load_xml_to_skin_lines(self.previewFiles + 'channellist-' + cfg.ChannSelector.value + '.xml'))
+
+            # Load the remaining files (eventview, vol, e2iplayer)
+            for filename in xml_files[12:]:  # The last 3 elements
+                skin_lines.extend(load_xml_to_skin_lines(self.previewFiles + filename + '.xml'))
+
+            base_file = 'base1.xml' if cfg.skinSelector.value == 'base1' else 'base.xml'
+            skin_lines.extend(load_xml_to_skin_lines(self.previewFiles + base_file))
+
+            print("Writing to file: {}".format(self.skinFile))
+            with open(self.skinFile, 'w') as xFile:
+                xFile.writelines(skin_lines)
+
+            """
+            xml_files = [
                 'head-' + cfg.colorSelector.value,
                 'font-' + cfg.FontStyle.value,
                 'infobar-' + cfg.InfobarStyle.value,
+                'infobar-' + cfg.InfobarECM.value,
                 'infobar-' + cfg.InfobarPosterx.value,
                 'infobar-' + cfg.InfobarXtraevent.value,
                 'infobar-' + cfg.InfobarDate.value,
                 'infobar-' + cfg.InfobarWeather.value,
                 'secondinfobar-' + cfg.SecondInfobarStyle.value,
+                'secondinfobar-' + cfg.SecondInfobarWeather.value,
                 'secondinfobar-' + cfg.SecondInfobarPosterx.value,
                 'secondinfobar-' + cfg.SecondInfobarXtraevent.value,
-                'channellist-' + cfg.ChannSelector.value,
+                # 'channellist-' + cfg.ChannSelector.value,
                 'eventview-' + cfg.EventView.value,
                 'vol-' + cfg.VolumeBar.value,
                 'e2iplayer-' + cfg.E2iplayerskins.value
@@ -787,7 +906,7 @@ class AglareSetup(ConfigListScreen, Screen):
             print("Writing to file: {}".format(self.skinFile))
             with open(self.skinFile, 'w') as xFile:
                 xFile.writelines(skin_lines)
-
+            """
         except Exception as e:
             self.session.open(MessageBox, _('Error by processing the skin file: {}').format(str(e)), MessageBox.TYPE_ERROR)
 

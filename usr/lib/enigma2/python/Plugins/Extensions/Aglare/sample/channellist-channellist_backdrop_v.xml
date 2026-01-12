@@ -10,15 +10,15 @@
   <eLabel backgroundGradient="wpuc,wpmc,wplc,vertical" cornerRadius="0" position="0,0" size="1920,1080" zPosition="-99" />
   <widget source="Title" render="Label" position="36,32" size="890,52" font="Regular; 32" noWrap="1" transparent="1" valign="center" zPosition="1" halign="left" />
   <widget name="list" position="36,94" size="890,900" serviceItemHeight="50" serviceNumberFont="Regular;30" serviceNameFont="Regular;30" serviceInfoFont="Regular;28" foregroundColor="white" colorServiceDescription="mint" colorServiceDescriptionSelected="white" colorServiceStreamed="green" foregroundColorServiceNotAvail="#444444" colorEventProgressbarBorderSelected="white" colorEventProgressbarBorder="white" zPosition="4" transparent="1" halign="left" itemHeight="50" picServiceEventProgressbar="main/chprogressbar.png" progressbarHeight="6" progressBarWidth="100" progressbarBorderWidth="1" scrollbarMode="showAlways" scrollbarForegroundColor="mcolor5" scrollbarBackgroundColor="black" scrollbarBorderColor="mcolor2" scrollbarWidth="10" scrollbarBorderWidth="1" scrollbarRadius="5" backgroundColorMarked="#00131a1d" itemGradientSelected="mcolor6,mcolor5,mcolor6,vertical" foregroundColorSelected="yellow" itemCornerRadius="10" />
-<eLabel name="" position="31,30" size="901,977" zPosition="-90" cornerRadius="18" backgroundColor="mcolor2" foregroundColor="mcolor2" />
-<widget source="session.CurrentService" render="Label" position="1246,65" size="648,30" font="Regular; 27" borderWidth="1" backgroundColor="background" transparent="1" halign="center" foregroundColor="white" zPosition="30" valign="center" noWrap="1">
+<eLabel name="" position="31,30" size="901,977" zPosition="-90" cornerRadius="18" backgroundColor="mcolor2" />
+<widget source="session.CurrentService" render="Label" position="1246,65" size="648,30" font="Regular; 27" borderWidth="1" backgroundColor="background" transparent="1" halign="center" zPosition="30" valign="center" noWrap="1">
   <convert type="ServiceName">Name</convert>
 </widget>
   <widget source="session.VideoPicture" render="Pig" position="1246,94" zPosition="1" size="648,364" backgroundColor="transparent" transparent="0" cornerRadius="14" />
 <widget source="ServiceEvent" render="Progress" position="1246,469" size="648,10" backgroundColor="progbg" foregroundGradient="green,yellow,red,horizontal" cornerRadius="5" zPosition="33">
   <convert type="EventTime">Progress</convert>
 </widget>
-<eLabel name="" position="1229,488" size="681,470" zPosition="-90" cornerRadius="18" backgroundColor="mcolor2" foregroundColor="mcolor2" />
+<eLabel name="" position="1229,488" size="681,470" zPosition="-90" cornerRadius="18" backgroundColor="mcolor2" />
 <widget source="ServiceEvent" render="AglareRunningText" options="movetype=running,startpoint=0,direction=top,steptime=100,startdelay=4000,wrap,always=0" position="1246,508" size="648,428" halign="left" font="Regular; 32" transparent="1" valign="top" zPosition="99">
   <convert type="EventName">FullDescription</convert>
 </widget>

@@ -256,7 +256,8 @@ config.plugins.Aglare.FontStyle = ConfigSelection(default='basic', choices=[
     ('font3', _('BebasNeue')),
     ('font4', _('Greta')),
     ('font5', _('Segoe UI light')),
-    ('font6', _('MV Boli'))
+    ('font6', _('MV Boli')),
+    ('font7', _('Lucida'))
 ])
 config.plugins.Aglare.skinSelector = ConfigSelection(default='base', choices=[
     ('base', _('Default'))
@@ -268,30 +269,44 @@ config.plugins.Aglare.InfobarStyle = ConfigSelection(default='infobar_base1', ch
     ('infobar_base4', _('Style4')),
     ('infobar_base5', _('Style5 CD'))
 ])
+config.plugins.Aglare.InfobarECM = ConfigSelection(default='infobar_ecm_off', choices=[
+    ('infobar_ecm_off', _('OFF')),
+    ('infobar_ecm_on', _('ON'))
+])
 config.plugins.Aglare.InfobarPosterx = ConfigSelection(default='infobar_posters_posterx_off', choices=[
     ('infobar_posters_posterx_off', _('OFF')),
     ('infobar_posters_posterx_on', _('ON')),
-    ('infobar_posters_posterx_cd', _('CD'))
+    ('infobar_posters_posterx_cd', _('CD')),
+    ('infobar_posters_posterx_ecm', _('1 poster'))
 ])
 config.plugins.Aglare.InfobarXtraevent = ConfigSelection(default='infobar_posters_xtraevent_off', choices=[
     ('infobar_posters_xtraevent_off', _('OFF')),
     ('infobar_posters_xtraevent_on', _('ON')),
     ('infobar_posters_xtraevent_cd', _('CD')),
-    ('infobar_posters_xtraevent_info', _('Backdrop'))
+    ('infobar_posters_xtraevent_info', _('Backdrop')),
+    ('infobar_posters_xtraevent_ecm', _('1 poster'))
 ])
 config.plugins.Aglare.InfobarDate = ConfigSelection(default='infobar_no_date', choices=[
     ('infobar_no_date', _('Infobar_NO_Date')),
     ('infobar_date', _('Infobar_Date'))
 ])
+
 config.plugins.Aglare.InfobarWeather = ConfigSelection(default='infobar_no_weather', choices=[
     ('infobar_no_weather', _('Infobar_NO_Weather')),
-    ('infobar_weather', _('Infobar_Weather'))
+    ('infobar_MSNweather', _('Infobar_MSNWeather')),
+    ('infobar_OAweather', _('Infobar_OAWeather'))
 ])
 config.plugins.Aglare.SecondInfobarStyle = ConfigSelection(default='secondinfobar_base1', choices=[
- ('secondinfobar_base1', _('Default')),
- ('secondinfobar_base2', _('Style2')),
- ('secondinfobar_base3', _('Style3')),
- ('secondinfobar_base4', _('Style4'))])
+    ('secondinfobar_base1', _('Default')),
+    ('secondinfobar_base2', _('Style2')),
+    ('secondinfobar_base3', _('Style3')),
+    ('secondinfobar_base4', _('Style4'))
+])
+config.plugins.Aglare.SecondInfobarWeather = ConfigSelection(default='secondinfobar_no_weather', choices=[
+    ('secondinfobar_no_weather', _('Second Infobar_NO_Weather')),
+    ('secondinfobar_MSNweather', _('Second Infobar_MSNWeather')),
+    ('secondinfobar_OAweather', _('Second Infobar_OAWeather'))
+])
 config.plugins.Aglare.SecondInfobarPosterx = ConfigSelection(default='secondinfobar_posters_posterx_off', choices=[
     ('secondinfobar_posters_posterx_off', _('OFF')),
     ('secondinfobar_posters_posterx_on', _('ON'))
@@ -327,7 +342,77 @@ config.plugins.Aglare.E2iplayerskins = ConfigSelection(default='e2iplayer_skin_o
     ('e2iplayer_skin_off', _('OFF')),
     ('e2iplayer_skin_on', _('ON'))
 ])
+config.plugins.Aglare.ChannForegroundColor = ConfigSelection(default='white', choices=[
+    ('white', _('White')),
+    ('#77ca5b', _('Mint')),
+    ('#FFFAFA', _('SnowWhite')),
+    ('#008080', _('Teal')),
+    ('#FF0000', _('Red')),
+    ('#DC143C', _('Crimson')),
+    ('#FF6347', _('Tomato')),
+    ('#4682B4', _('SteelBlue')),
+    ('#32CD32', _('LimeGreen')),
+    ('#9ACD32', _('YellowGreen')),
+    ('#D3D3D3', _('LightGray')),
+    ('#A0522D', _('Sienna')),
+    ('#FF4500', _('Orange')),
+    ('#663399', _('Purple')),
+    ('#FF69B4', _('Pink'))
+])
 
+config.plugins.Aglare.ChannForegroundColorSelected = ConfigSelection(default='white', choices=[
+    ('white', _('White')),
+    ('#77ca5b', _('Mint')),
+    ('#FFFAFA', _('SnowWhite')),
+    ('#008080', _('Teal')),
+    ('#FF0000', _('Red')),
+    ('#DC143C', _('Crimson')),
+    ('#FF6347', _('Tomato')),
+    ('#4682B4', _('SteelBlue')),
+    ('#32CD32', _('LimeGreen')),
+    ('#9ACD32', _('YellowGreen')),
+    ('#D3D3D3', _('LightGray')),
+    ('#A0522D', _('Sienna')),
+    ('#FF4500', _('Orange')),
+    ('#663399', _('Purple')),
+    ('#FF69B4', _('Pink'))
+])
+
+config.plugins.Aglare.ChannServiceDescriptionColor = ConfigSelection(default='white', choices=[
+    ('white', _('White')),
+    ('#77ca5b', _('Mint')),
+    ('#FFFAFA', _('SnowWhite')),
+    ('#008080', _('Teal')),
+    ('#FF0000', _('Red')),
+    ('#DC143C', _('Crimson')),
+    ('#FF6347', _('Tomato')),
+    ('#4682B4', _('SteelBlue')),
+    ('#32CD32', _('LimeGreen')),
+    ('#9ACD32', _('YellowGreen')),
+    ('#D3D3D3', _('LightGray')),
+    ('#A0522D', _('Sienna')),
+    ('#FF4500', _('Orange')),
+    ('#663399', _('Purple')),
+    ('#FF69B4', _('Pink'))
+])
+
+config.plugins.Aglare.ChannServiceDescriptionColorSelected = ConfigSelection(default='white', choices=[
+    ('white', _('White')),
+    ('#77ca5b', _('Mint')),
+    ('#FFFAFA', _('SnowWhite')),
+    ('#008080', _('Teal')),
+    ('#FF0000', _('Red')),
+    ('#DC143C', _('Crimson')),
+    ('#FF6347', _('Tomato')),
+    ('#4682B4', _('SteelBlue')),
+    ('#32CD32', _('LimeGreen')),
+    ('#9ACD32', _('YellowGreen')),
+    ('#D3D3D3', _('LightGray')),
+    ('#A0522D', _('Sienna')),
+    ('#FF4500', _('Orange')),
+    ('#663399', _('Purple')),
+    ('#FF69B4', _('Pink'))
+])
 cfg = config.plugins.Aglare
 configfile.load()  # pull the values that were written to /etc/enigma2/settings
 api_key_manager = ApiKeyManager()

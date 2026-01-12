@@ -1,0 +1,669 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Aglare\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-15 12:37+0100\n"
+"PO-Revision-Date: 2025-11-15 12:37+0100\n"
+"Last-Translator: \n"
+"Language-Team: giorbak\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.8\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: ../../..\n"
+"X-Poedit-SearchPath-0: api_config.py\n"
+"X-Poedit-SearchPath-1: DownloadControl.py\n"
+"X-Poedit-SearchPath-2: plugin.py\n"
+"X-Poedit-SearchPath-3: addons/checkskin.py\n"
+"X-Poedit-SearchPath-4: addons/File_Commander.py\n"
+"X-Poedit-SearchPath-5: addons/type_utils.py\n"
+"X-Poedit-SearchPath-6: addons/WeatherSearch.py\n"
+
+msgid "%s key imported!"
+msgstr ""
+
+msgid "1 poster"
+msgstr "1 αφίσα"
+
+msgid "Activate/Deactivate ELCINEMA"
+msgstr ""
+
+msgid "Activate/Deactivate GOOGLE"
+msgstr ""
+
+msgid "Activate/Deactivate IMDB"
+msgstr ""
+
+msgid "Activate/Deactivate MOLOTOV"
+msgstr ""
+
+msgid "Activate/Deactivate PROGRAMMETV"
+msgstr ""
+
+msgid "Activate/Deactivate {}"
+msgstr ""
+
+msgid "Add"
+msgstr "Προσθήκη"
+
+msgid "All png are removed from folder!"
+msgstr ""
+
+msgid "Automatic"
+msgstr ""
+
+msgid "Automatic download of backdrop"
+msgstr ""
+
+msgid "Automatic download of poster"
+msgstr ""
+
+msgid "Automatically fetch backdrop for favorite events based on EPG"
+msgstr ""
+
+msgid "Automatically fetch posters for favorite events based on EPG"
+msgstr ""
+
+msgid "Back"
+msgstr "Πίσω"
+
+msgid "Backdrop"
+msgstr "Σκηνικό"
+
+msgid "Backdrop download error: {}"
+msgstr ""
+
+msgid "BebasNeue"
+msgstr "BebasNeue"
+
+msgid "Black"
+msgstr "Μαύρο"
+
+msgid "Blue"
+msgstr "Μπλε"
+
+msgid "Brown"
+msgstr "Καφέ"
+
+msgid "CD"
+msgstr "CD"
+
+msgid "Cancel"
+msgstr "Άκυρο"
+
+msgid "Channel Description Color:"
+msgstr "Χρώμα περιγραφής καναλιών:"
+
+msgid "Channel Foreground Color:"
+msgstr "Χρώμα προσκήνιου καναλιών:"
+
+msgid "Channel Selected Description Color:"
+msgstr "Χρώμα περιγραφής επιλεγμένου καναλιού:"
+
+msgid "Channel Selected Foreground Color:"
+msgstr "Χρώμα προσκήνιου επιλεγμένου καναλιού:"
+
+msgid "ChannelSelection Style:"
+msgstr "Στυλ επιλογής καναλιών:"
+
+msgid "ChannelSelection_1_Poster_EX"
+msgstr "Επιλογή καναλιών_1 αφίσα EX"
+
+#, fuzzy
+msgid "ChannelSelection_1_Poster_PX"
+msgstr "Επιλογή καναλιών_1 αφίσα PX"
+
+msgid "ChannelSelection_4_Posters_EX"
+msgstr "Επιλογή καναλιών_4 αφίσες EX"
+
+#, fuzzy
+msgid "ChannelSelection_4_Posters_PX"
+msgstr "Επιλογή καναλιών_4 αφίσες PX"
+
+msgid "ChannelSelection_6_Posters_EX"
+msgstr "Επιλογή καναλιών_6 αφίσες EX"
+
+#, fuzzy
+msgid "ChannelSelection_6_Posters_PX"
+msgstr "Επιλογή καναλιών_6 αφίσες PX"
+
+msgid "ChannelSelection_BackDrop_H_EX"
+msgstr "Επιλογή καναλιών_Οριζόντιο σκηνικό_EX"
+
+msgid "ChannelSelection_BackDrop_H_PX"
+msgstr "Επιλογή καναλιών_Οριζόντιο σκηνικό PX"
+
+msgid "ChannelSelection_BackDrop_V_EX"
+msgstr "Επιλογή καναλιών_Κάθετο σκηνικό EX"
+
+msgid "ChannelSelection_BackDrop_V_PX"
+msgstr "Επιλογή καναλιών_Κάθετο σκηνικό PX"
+
+msgid "ChannelSelection_NO_Posters"
+msgstr "Επιλογή καναλιών_Χωρίς αφίσες"
+
+msgid "ChannelSelection_NO_Posters_NO_Picon"
+msgstr "Επιλογή καναλιών_Χωρίς αφίσες_Χωρίς Picon"
+
+msgid "ChannelSelection_big_mini_tv"
+msgstr "Επιλογή καναλιών_Μεγάλη mini tv"
+
+msgid "City"
+msgstr "Πόλη"
+
+msgid "Color Style:"
+msgstr "Στυλ χρωμάτων:"
+
+msgid "Configure the delay time (in minutes) before starting the automatic poster download"
+msgstr ""
+
+msgid "Crimson"
+msgstr "Βυσσινί"
+
+#, fuzzy
+msgid "Customization tool for %s Skin"
+msgstr "Εργαλείο προσαρμογής για το θέμα Aglare-FHD"
+
+msgid "Default"
+msgstr "Προεπιλογή"
+
+msgid "Del Line"
+msgstr ""
+
+msgid "Delete"
+msgstr "Διαγραφή"
+
+msgid "Download error: {}"
+msgstr ""
+
+#, fuzzy
+msgid "Download in progress…"
+msgstr "Λήψη σε εξέλιξη…"
+
+msgid "Download now backdrop"
+msgstr ""
+
+#, fuzzy
+msgid "Download now poster"
+msgstr "Λήψη σε εξέλιξη…"
+
+msgid "Downloading Aglare..."
+msgstr "Γίνεται λήψη του Aglare..."
+
+msgid "Edit"
+msgstr "Επεξεργασία"
+
+msgid "Enable Display Genre icons:"
+msgstr ""
+
+msgid "Enable Display InfoEvents:"
+msgstr ""
+
+msgid "Enable Display XMC Poster:"
+msgstr ""
+
+msgid "Enable Parental Icons:"
+msgstr ""
+
+msgid "Enable Rating Star:"
+msgstr ""
+
+msgid "Enable or disable caching during event download to speed up repeated searches."
+msgstr ""
+
+msgid "Enable the display of extended event information, including full cast, crew, plot details, and other metadata, in the info widget."
+msgstr ""
+
+msgid "Error by processing the skin file: {}"
+msgstr ""
+
+msgid "Error downloading files!"
+msgstr "Σφάλμα κατά τη λήψη των αρχείων!"
+
+#, fuzzy
+msgid "Error loading: {}"
+msgstr "Σφάλμα κατά τη λήψη των αρχείων!"
+
+msgid "Error {0}: {1}"
+msgstr ""
+
+msgid "Error: {}"
+msgstr ""
+
+msgid "EventView Style:"
+msgstr "Στυλ προβολής προγραμμάτων:"
+
+msgid "EventView_7_Posters"
+msgstr "Προβολή προγραμμάτων_7 αφίσες"
+
+msgid "EventView_NO_Posters"
+msgstr "Προβολή προγραμμάτων_Χωρίς αφίσες"
+
+msgid "Exit"
+msgstr "Έξοδος"
+
+msgid "File Commander - Addon"
+msgstr "File Commander - Πρόσθετο"
+
+msgid "File {} not found or empty"
+msgstr ""
+
+msgid "Green"
+msgstr "Πράσινο"
+
+msgid "Green2"
+msgstr "Πράσινο2"
+
+msgid "Greta"
+msgstr "Greta"
+
+msgid "HandelGotD"
+msgstr "HandelGotD"
+
+msgid "Import key {0} from {1}?"
+msgstr ""
+
+msgid "Info..."
+msgstr "Πληροφορίες..."
+
+msgid "InfoBar Date:"
+msgstr "Ημερομηνία μπάρας πληροφοριών:"
+
+msgid "InfoBar ECM:"
+msgstr "ECM μπάρας πληροφοριών:"
+
+msgid "InfoBar PosterX:"
+msgstr "Αφίσες μπάρας πληροφοριών:"
+
+msgid "InfoBar Style:"
+msgstr "Στυλ μπάρας πληροφοριών:"
+
+msgid "InfoBar Weather:"
+msgstr "Καιρός μπάρας πληροφοριών:"
+
+msgid "InfoBar Xtraevent:"
+msgstr "Έξτρα πρόγραμμα μπάρας πληροφοριών:"
+
+msgid "Infobar_Date"
+msgstr "Μπάρα πληροφοριών_Ημερομηνία"
+
+msgid "Infobar_MSNWeather"
+msgstr "Μπάρα πληροφοριών_Καιρός MSN"
+
+msgid "Infobar_NO_Date"
+msgstr "Μπάρα πληροφοριών_Χωρίς ημερομηνία"
+
+msgid "Infobar_NO_Weather"
+msgstr "Μπάρα πληροφοριών_Χωρίς καιρό"
+
+#, fuzzy
+msgid "Infobar_OAWeather"
+msgstr "Μπάρα πληροφοριών_Καιρός OA"
+
+msgid "Ins Line"
+msgstr ""
+
+#, fuzzy
+msgid "Installing updates..."
+msgstr "Εγκατάσταση ενημερώσεων!"
+
+#, fuzzy
+msgid "Key empty"
+msgstr "Το TMDB ApiKey είναι κενό!"
+
+msgid "Key {} successfully loaded!"
+msgstr ""
+
+msgid "KhalidArtboldRegular"
+msgstr "KhalidArtboldRegular"
+
+msgid "LightGray"
+msgstr "Ανοιχτό γκρι"
+
+msgid "LimeGreen"
+msgstr "Πρασινοκίτρινο"
+
+#, fuzzy
+msgid "Load from /tmp/{}key.txt"
+msgstr "Φόρτωση TMDB ApiKey από το /tmp/tmdbkey.txt"
+
+msgid "Local build ({}) is newer than server build ({})."
+msgstr ""
+
+msgid "Location code"
+msgstr "Κωδικός τοποθεσίας"
+
+msgid "Lucida"
+msgstr ""
+
+msgid "MSN location search result"
+msgstr "Αποτέλεσμα αναζήτησης τοποθεσίας MSN"
+
+msgid "MV Boli"
+msgstr "MV Boli"
+
+msgid "Magenta"
+msgstr "Ματζέντα"
+
+msgid "Mint"
+msgstr "Μέντα"
+
+msgid "No active providers enabled"
+msgstr ""
+
+msgid "OFF"
+msgstr "Απενεργοποίηση"
+
+msgid "OK"
+msgstr "Εντάξει"
+
+msgid "OMDB Only"
+msgstr ""
+
+msgid "ON"
+msgstr "Ενεργοποίηση"
+
+msgid "Off"
+msgstr ""
+
+msgid "Orange"
+msgstr "Πορτοκαλί"
+
+msgid "Personal API key for {}"
+msgstr ""
+
+msgid "Pink"
+msgstr "Ροζ"
+
+msgid "Please enter a valid city name."
+msgstr "Παρακαλώ εισάγετε ένα έγκυρο όνομα πόλης."
+
+msgid "Please enter a valid location code for the city."
+msgstr "Παρακαλώ εισάγετε έναν έγκυρο κωδικό τοποθεσίας για την πόλη."
+
+msgid "Poster download error: {}"
+msgstr ""
+
+msgid "Purple"
+msgstr "Μοβ"
+
+msgid "Really delete this WeatherPlugin Entry?"
+msgstr "Θέλετε σίγουρα να διαγράψετε αυτήν την καταχώρηση του WeatherPlugin;"
+
+msgid "Red"
+msgstr "Κόκκινο"
+
+msgid "Remove all png (poster - backdrop) (OK)"
+msgstr ""
+
+msgid "Restart GUI now?"
+msgstr "Να γίνει επανεκκίνηση του γραφικού περιβάλλοντος τώρα;"
+
+msgid "Save"
+msgstr "Αποθήκευση"
+
+msgid "Search Code"
+msgstr "Αναζήτηση κωδικού"
+
+msgid "Second Infobar_MSNWeather"
+msgstr "2η μπάρα πληροφοριών_Καιρός MSN"
+
+msgid "Second Infobar_NO_Weather"
+msgstr "2η μπάρα πληροφοριών_Χωρίς καιρό"
+
+msgid "Second Infobar_OAWeather"
+msgstr "2η μπάρα πληροφοριών_Καιρός OA"
+
+msgid "SecondInfobar Posterx:"
+msgstr "Αφίσες 2ης μπάρας πληροφοριών:"
+
+msgid "SecondInfobar Style:"
+msgstr "Στυλ 2ης μπάρας πληροφοριών:"
+
+msgid "SecondInfobar Weather:"
+msgstr "Καιρός 2ης μπάρας πληροφοριών:"
+
+msgid "SecondInfobar Xtraevent:"
+msgstr "Έξτρα πρόγραμμα 2ης μπάρας πληροφοριών:"
+
+msgid "Segoe UI light"
+msgstr "Segoe UI light"
+
+msgid "Select Your Font:"
+msgstr "Επιλογή γραμματοσειράς:"
+
+msgid "Set Time our - minute for Backdrop download"
+msgstr ""
+
+msgid "Set Time our - minute for Poster download"
+msgstr ""
+
+msgid "Settings Apikey Server"
+msgstr "Ρυθμίσεις διακομιστή Apikey"
+
+msgid "Setup Aglare Skin Info"
+msgstr ""
+
+msgid "Show icons representing the genre of each event (e.g., action, comedy, drama)"
+msgstr ""
+
+msgid "Show parental guidance icons on events to indicate content rating and age suitability."
+msgstr ""
+
+msgid "Show poster from movie in local folder"
+msgstr ""
+
+msgid "Sienna"
+msgstr "Καφέ σιένα"
+
+msgid "Skin Style:"
+msgstr "Στυλ θέματος:"
+
+msgid "SnowWhite"
+msgstr "Λευκό χιονιού"
+
+msgid "Start downloading backdrop immediately"
+msgstr ""
+
+msgid "Start downloading poster immediately"
+msgstr ""
+
+msgid "SteelBlue"
+msgstr "Γκριζογάλανο"
+
+msgid "Style2"
+msgstr "Στυλ2"
+
+msgid "Style3"
+msgstr "Στυλ3"
+
+msgid "Style4"
+msgstr "Στυλ4"
+
+msgid "Style5 CD"
+msgstr "Στυλ5 CD"
+
+msgid "Support E2iplayer Skins:"
+msgstr "Υποστήριξη θεμάτων E2iplayer:"
+
+msgid "System"
+msgstr "Σύστημα"
+
+msgid "TMDB Only"
+msgstr ""
+
+msgid "Teal"
+msgstr "Γαλαζοπράσινο"
+
+#, fuzzy
+msgid "The file %s is empty."
+msgstr "Το TMDB ApiKey είναι κενό!"
+
+msgid "The file %s was not found."
+msgstr ""
+
+msgid "This operation enable the display of rating stars for events, based on the selected rating source."
+msgstr ""
+
+msgid "This operation remove all png from folder device (Poster-Backdrop)"
+msgstr ""
+
+msgid "Tomato"
+msgstr "Χρώμα ντομάτας"
+
+msgid "Update URL not initialised – open the plugin once from the Plugins menu first."
+msgstr ""
+
+msgid "Update check failed: {}"
+msgstr ""
+
+msgid "Update package not found!"
+msgstr ""
+
+msgid "VolumeBar Style:"
+msgstr "Στυλ μπάρας έντασης ήχου:"
+
+msgid "WeatherPlugin: Edit Entry"
+msgstr "WeatherPlugin: Επεξεργασία καταχώρησης"
+
+msgid "WeatherPlugin: List of Entries"
+msgstr "WeatherPlugin: Λίστα καταχωρήσεων"
+
+msgid "White"
+msgstr "Λευκό"
+
+msgid "YellowGreen"
+msgstr "Κιτρινοπράσινο"
+
+#, fuzzy
+msgid "You already have the latest version ({})."
+msgstr "Έχετε την τρέχουσα έκδοση του Aglare!"
+
+msgid "You need to enter a valid city name before you can search for the location code."
+msgstr "Πρέπει να εισάγετε ένα έγκυρο όνομα πόλης πριν μπορέσετε να αναζητήσετε τον κωδικό τοποθεσίας."
+
+msgid "imperial system"
+msgstr "aγγλικό σύστημα"
+
+msgid "metric system"
+msgstr "mετρικό σύστημα"
+
+msgid "play/show Files"
+msgstr "aναπαραγωγή/προβολή αρχείων"
+
+msgid "volume2"
+msgstr "eνταση2"
+
+#, fuzzy
+#~| msgid ""
+#~| "Aglare update was done!!!\n"
+#~| "Do you want to restart the GUI now?"
+#~ msgid ""
+#~ "Aglare update was done!\n"
+#~ "Do you want to restart the GUI now?"
+#~ msgstr ""
+#~ "Η ενημέρωση του Aglare ολοκληρώθηκε!!!\n"
+#~ "Θέλετε να γίνει επανεκκίνηση της διεπαφής χρήστη τώρα;"
+
+#, fuzzy
+#~| msgid "Green"
+#~ msgid "Dark Green"
+#~ msgstr "Πράσινο"
+
+#~ msgid "Do you want to save the changes?"
+#~ msgstr "Θέλετε να αποθηκεύσετε τις αλλαγές;"
+
+#~ msgid ""
+#~ "GUI needs a restart to apply a new skin.\n"
+#~ "Do you want to Restart the GUI now?"
+#~ msgstr ""
+#~ "Πρέπει να γίνει επανεκκίνηση του GUI για να εφαρμοστεί το νέο θέμα.\n"
+#~ "Θέλετε να γίνει επανεκκίνηση της διεπαφής χρήστη τώρα;"
+
+#~ msgid "Import Api Key OMDB from /tmp/omdbkey.txt?"
+#~ msgstr "Να γίνει εισαγωγή του κλειδιού Api OMDB από το /tmp/omdbkey.txt;"
+
+#~ msgid "Import Api Key TMDB from /tmp/tmdbkey.txt?"
+#~ msgstr "Να γίνει εισαγωγή του κλειδιού Api TMDB από το /tmp/tmdbkey.txt;"
+
+#~ msgid "Load OMDB Apikey from /tmp/omdbkey.txt"
+#~ msgstr "Φόρτωση OMDB ApiKey από το /tmp/omdbkey.txt"
+
+#, python-format
+#~ msgid "Missing %s !"
+#~ msgstr "Λείπει το %s !"
+
+#~ msgid "OMDB ApiKey Imported & Stored!"
+#~ msgstr "Το OMDB ApiKey εισήχθη και αποθηκεύτηκε!"
+
+#~ msgid "OMDB ApiKey is empty!"
+#~ msgstr "Το OMDB ApiKey είναι κενό!"
+
+#~ msgid "Server version:"
+#~ msgstr "Έκδοση διακομιστή:"
+
+#~ msgid "Settings OMDB APIKEY"
+#~ msgstr "Ρυθμίσεις OMDB APIKEY"
+
+#~ msgid "Settings TMDB ApiKey"
+#~ msgstr "Ρυθμίσεις TMDB ApiKey"
+
+#, python-format
+#~ msgid "Setup Aglare for Aglare-FHD v.%s"
+#~ msgstr "Ρυθμίσεις Aglare για το Aglare-FHD v.%s"
+
+#~ msgid "Signup on OMDB and input free personal ApiKey"
+#~ msgstr "Εγγραφή στο OMDB και εισαγωγή δωρεάν προσωπικού ApiKey"
+
+#~ msgid "Signup on TMDB and input free personal ApiKey"
+#~ msgstr "Εγγραφή στο TMDB και εισαγωγή δωρεάν προσωπικού ApiKey"
+
+#~ msgid "TMDB ApiKey Imported & Stored!"
+#~ msgstr "Το TMDB ApiKey εισήχθη και αποθηκεύτηκε!"
+
+#~ msgid ""
+#~ "The update is available!\n"
+#~ "\n"
+#~ "Do you want to run the update now?"
+#~ msgstr ""
+#~ "Η ενημέρωση είναι διαθέσιμη!\n"
+#~ "\n"
+#~ "Θέλετε να την εκτελέσετε τώρα;"
+
+#~ msgid "Version installed:"
+#~ msgstr "Εγκατεστημένη έκδοση:"
+
+#, python-format
+#~ msgid "You have version %s!!!"
+#~ msgstr "Έχετε την έκδοση %s!!!"
+
+#, fuzzy
+#~| msgid ""
+#~| "[Checkskin] This operation checks if the skin has its components (is not sure)..\n"
+#~| "Do you really want to continue?"
+#~ msgid ""
+#~ "[Checkskin] This operation checks if the skin has its components (not guaranteed)...\n"
+#~ "Do you really want to continue?"
+#~ msgstr ""
+#~ "[Checkskin] Αυτή η λειτουργία ελέγχει εάν το θέμα έχει τα συστατικά του (δεν είναι σίγουρο).\n"
+#~ "Θέλετε πραγματικά να συνεχίσετε;"
+
+#, fuzzy
+#~| msgid ""
+#~| "[Checkskin] This operation checks if the skin has its components (is not sure)..\n"
+#~| "Do you really want to continue?"
+#~ msgid ""
+#~ "[RemovePng] This operation will remove all PNGs from the device folder (Poster-Backdrop)...\n"
+#~ "Do you really want to continue?"
+#~ msgstr ""
+#~ "[Checkskin] Αυτή η λειτουργία ελέγχει εάν το θέμα έχει τα συστατικά του (δεν είναι σίγουρο).\n"
+#~ "Θέλετε πραγματικά να συνεχίσετε;"
