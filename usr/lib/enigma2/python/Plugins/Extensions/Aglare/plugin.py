@@ -77,7 +77,7 @@ from . import _
 from .api_config import cfg, ApiKeyManager
 from .DownloadControl import startPosterAutoDB, startBackdropAutoDB
 
-skinversion = '' 
+skinversion = ''
 api_key_manager = ApiKeyManager()
 version = '5.7'
 
@@ -910,9 +910,7 @@ class AglareUpdater(Screen):
 
     def downloadFinished(self, string=""):
         self["status"].setText(_("Installing updates..."))
-
         package_path = "/tmp/aglare.ipk"
-
         if fileExists(package_path):
             # Install the package
             os_system("opkg install {}".format(package_path))
