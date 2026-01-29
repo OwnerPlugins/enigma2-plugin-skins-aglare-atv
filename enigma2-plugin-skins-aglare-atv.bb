@@ -1,5 +1,5 @@
-DESCRIPTION = "Aglare-skin"
-MAINTAINER = "lululla"
+SUMMARY = "Aglare-skin"
+MAINTAINER = "Lululla"
 SECTION = "base"
 PRIORITY = "required"
 LICENSE = "proprietary"
@@ -10,14 +10,14 @@ inherit gitpkgv allarch
 
 
 SRCREV = "${AUTOREV}"
-PV = "1.2+git${SRCPV}"
-PKGV = "1.2+git${GITPKGV}"
-VER ="4.7"
+PV = "1.0+git${SRCPV}"
+PKGV = "1.0+git${GITPKGV}"
+VER ="1.0"
 PR = "r0"
 
 SRC_URI = "git://github.com/Belfagor2005/enigma2-plugin-skins-aglare-atv.git;protocol=https;branch=main"
 
-FILES_${PN} = "/usr/*"
+FILES:${PN} = "/usr/*"
 
 S = "${WORKDIR}/git"
 
