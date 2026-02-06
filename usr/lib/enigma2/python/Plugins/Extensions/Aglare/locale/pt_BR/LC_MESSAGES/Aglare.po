@@ -1,5 +1,13 @@
-#, fuzzy
-
+msgid ""
+msgstr ""
+"Project-Id-Version: enigma 2\n"
+"PO-Revision-Date: 2026-02-05 19:35+0000\n"
+"Last-Translator:  <EMAIL@ADDRESS>\n"
+"Language-Team: Language pt-BR\n"
+"Language: pt-BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ASCII\n"
+"Content-Transfer-Encoding: 8bit\n"
 
 msgid "%s key imported!"
 msgstr ""
@@ -154,7 +162,7 @@ msgstr ""
 msgid "Download error: {}"
 msgstr ""
 
-msgid "Download in progress…"
+msgid "Download in progress"
 msgstr ""
 
 msgid "Download now backdrop"
@@ -481,7 +489,7 @@ msgstr ""
 msgid "Tomato"
 msgstr ""
 
-msgid "Update URL not initialised – open the plugin once from the Plugins menu first."
+msgid "Update URL not initialised  open the plugin once from the Plugins menu first."
 msgstr ""
 
 msgid "Update check failed: {}"
