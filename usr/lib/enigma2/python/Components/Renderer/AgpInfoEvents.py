@@ -381,7 +381,8 @@ class AgpInfoEvents(Renderer, VariableText):
 			return None
 
 	def onHide(self):
-		self.timer.stop()
+		if hasattr(self, 'timer') and self.timer:
+			self.timer.stop()
 
 	def onShow(self):
 		self.changed(None)
